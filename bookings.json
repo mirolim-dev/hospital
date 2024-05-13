@@ -1,0 +1,86 @@
+
+{
+    "bookings": [
+        {
+            "student": {
+                "first_name": "Jahongir",
+                "last_name": "Doniyoriy",
+                "gender": 1,
+                "address": "Farg'on Yozyavon",
+                "phone": "+998778794587",
+                "image": null,
+                "university": 1,
+                "faculty": 1,
+                "group": "620-21",
+                "study_type": 1,
+                "smena": 1
+            },
+            "description": "Some description for the booking"
+        },
+        {
+            "student": {
+                "first_name": "Javohir",
+                "last_name": "Turgunov",
+                "gender": 1,
+                "address": "Farg'on Buvayda",
+                "phone": "+998778794588",
+                "image": null,
+                "university": 1,
+                "faculty": 1,
+                "group": "650-21",
+                "study_type": 1,
+                "smena": 1
+            },
+            "description": "Some description for the booking"
+        },
+        {
+            "student": {
+                "first_name": "Javlon",
+                "last_name": "Turgunov",
+                "gender": 1,
+                "address": "Farg'on Buvayda",
+                "phone": "+998778794589",
+                "image": null,
+                "university": 1,
+                "faculty": 1,
+                "group": "632-24",
+                "study_type": 1,
+                "smena": 1
+            },
+            "description": "Some description for the booking"
+        },
+        {
+            "student": {
+                "first_name": "Jayrona",
+                "last_name": "Hakimova",
+                "gender": 0,
+                "address": "Andijon, Bo'z",
+                "phone": "+998778793145",
+                "image": null,
+                "university": 1,
+                "faculty": 1,
+                "group": "650-23",
+                "study_type": 1,
+                "smena": 1
+            },
+            "description": "Some description for the booking"
+        },
+        {
+            "student": {
+                "first_name": "Rayhona",
+                "last_name": "Jasurova",
+                "gender": 0,
+                "address": "Namangan, Yangiqo'rg'on",
+                "phone": "+998778794512",
+                "image": null,
+                "university": 1,
+                "faculty": 1,
+                "group": "650-20",
+                "study_type": 1,
+                "smena": 0
+            },
+            "description": "Some description for the booking"
+        }
+
+    ]
+}
