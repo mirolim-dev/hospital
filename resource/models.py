@@ -105,8 +105,9 @@ class BatchMedicine(models.Model):
         return f"Partiya{self.id}|{self.medicine.name} | {self.amount}"
 
     def save(self) -> None:
-        self.available_amount = self.amount
-        self.available_measure = self.measure
+        if not self.pk:
+            self.available_amount = self.amount
+            self.available_measure = self.measure
         super().save()
 
 
