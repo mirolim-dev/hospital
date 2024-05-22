@@ -1,7 +1,11 @@
 from django.contrib import admin
 
 
-from .models import Room, RoomStuff, Stuff, InvalidStuff, Medicine
+from .models import (
+    Room, RoomStuff, Stuff, 
+    InvalidStuff, Medicine, 
+    BatchMedicine,
+    )
 # Register your models here.
 
 class RoomAdmin(admin.ModelAdmin):
@@ -33,3 +37,4 @@ class MedicineAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_filter = ['measure']
 admin.site.register(Medicine, MedicineAdmin)
+

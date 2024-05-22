@@ -86,6 +86,7 @@ class BatchMedicine(models.Model):
         verbose_name_plural = "Dorilar Partiyalari"
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, verbose_name="Dori")
     amount = models.DecimalField(max_digits=15, decimal_places=2, default=1, verbose_name="miqdor")
+    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="O'lchov birligi")
     available_till = models.DateField(verbose_name="Yaroqlilik muddati")
     STATUS_CHOICES = (
         (0, "Yaroqlilik muddati tugagan"),
