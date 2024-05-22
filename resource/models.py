@@ -79,4 +79,23 @@ class Medicine(models.Model):
     def get_available_amount(self):
         pass
     
+
+class BatchMedicine(models.Model):
+    class Meta:
+        verbose_name = "Dori Partiyasi"
+        verbose_name_plural = "Dorilar Partiyalari"
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, verbose_name="Dori")
+    amount = models.DecimalField(max_digits=15, decimal_places=2, default=1, verbose_name="miqdor")
+    available_till = models.DateField(verbose_name="Yaroqlilik muddati")
+    STATUS_CHOICES = (
+        (0, "Yaroqlilik muddati tugagan"),
+        (1, "Active"),
+        (2, "Tugatilgan")
+    )
+    status = models.IntegerField(choices=STATUS_CHOICES, default=1, verbose_name="Xolati")
+
+    def __str__(self):
+        return f"Partiya{self.id}|{self.medicine.name} | {self.amount}"
     
+    def get_available_amount(self):
+        pass
