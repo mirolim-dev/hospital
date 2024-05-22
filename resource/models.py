@@ -94,6 +94,7 @@ class BatchMedicine(models.Model):
         (2, "Tugatilgan")
     )
     status = models.IntegerField(choices=STATUS_CHOICES, default=1, verbose_name="Xolati")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Keltirilgan vaqt", null=True)
 
     def __str__(self):
         return f"Partiya{self.id}|{self.medicine.name} | {self.amount}"
