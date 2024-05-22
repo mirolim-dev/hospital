@@ -1,7 +1,9 @@
 from django.db import models
 
 from config.variables import MEASURE
+from staff.models import Staff
 from .validators import validate_invalid_stuff_amount
+
 
 # Create your models here.
 class Room(models.Model):
@@ -101,3 +103,20 @@ class BatchMedicine(models.Model):
     
     def get_available_amount(self):
         pass
+
+
+class MedicineUsage(models.Model):
+    class Meta:
+        verbose_name = "Foydalanilgan dori"
+        verbose_name_plural = "Fodalanilgan dorilar"
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, verbose_name="Dori")
+    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, null=True, verbose_name="Xodim")
+    amount = models.DecimalField(max_digits=15, decimal_places=2, verbose_name="miqdor", default=1)
+    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="O'lchov birligi")
+    description = models.TextField(verbose_name="Izoh")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Foydalanigan vaqti")
+
+    def __str__(self):
+        return f"Foydalanilgan dori | {self.medicine__name} | {self.get_measure_display()}"
+    
+
