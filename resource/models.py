@@ -88,7 +88,9 @@ class BatchMedicine(models.Model):
         verbose_name_plural = "Dorilar Partiyalari"
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, verbose_name="Dori")
     amount = models.DecimalField(max_digits=15, decimal_places=2, default=1, verbose_name="miqdor")
-    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="O'lchov birligi")
+    available_amount = models.DecimalField(max_digits=15, decimal_places=2, default=1, verbose_name="mavjud miqdori")
+    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="Miqdor o'lchovi")
+    available_measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="Mavjud miqdor o'lchovi")
     available_till = models.DateField(verbose_name="Yaroqlilik muddati")
     STATUS_CHOICES = (
         (0, "Yaroqlilik muddati tugagan"),
@@ -100,9 +102,12 @@ class BatchMedicine(models.Model):
 
     def __str__(self):
         return f"Partiya{self.id}|{self.medicine.name} | {self.amount}"
-    
-    def get_available_amount(self):
-        pass
+
+    def save(self) -> None:
+        self.available_amount = self.amount
+        self.available_measure = self.measure
+        super().save()
+
 
 
 class MedicineUsage(models.Model):
