@@ -74,6 +74,7 @@ class Medicine(models.Model):
     aware_amount = models.DecimalField(max_digits=15, decimal_places=2, default=100, verbose_name="Ogohlantirish miqdori")
     aware_before_days = models.PositiveBigIntegerField(default=3, verbose_name="Kun avval ogohlantir", help_text="Dorining yaroqlilik muddati \
         tugashidan necha kun avval ogohlantirlishi kerakligini kiriting")
+    description = models.TextField(verbose_name="Dori xususiyati", null=True)
     def __str__(self):
         return self.name + '|' + self.get_measure_display()
 
