@@ -22,3 +22,4 @@ class AttandanceAdmin(admin.ModelAdmin):
     get_staff_role.short_description = 'Xodim turi'
 
 admin.site.register(Attandace, AttandanceAdmin)
+    

@@ -29,7 +29,7 @@ admin.site.register(InvalidStuff, InvalidStuffAdmin)
 
 
 class MedicineAdmin(admin.ModelAdmin):
-    list_display = ['name', 'measure']
+    list_display = ['name', 'measure', 'aware_amount', 'aware_before_days']
     search_fields = ['name']
     list_filter = ['measure']
 admin.site.register(Medicine, MedicineAdmin)

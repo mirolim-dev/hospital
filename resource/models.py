@@ -1,6 +1,8 @@
 from django.db import models
 
+from config.variables import MEASURE
 from .validators import validate_invalid_stuff_amount
+
 # Create your models here.
 class Room(models.Model):
     class Meta:
@@ -66,18 +68,15 @@ class Medicine(models.Model):
         verbose_name = "Dori vositasi"
         verbose_name_plural = "Dori vositalari"
     name = models.CharField(max_length=150, verbose_name="nomi")
-    GRAMM = "g"
-    MILLIGRAMM = "mg"
-    LITER = "l"
-    MILLITER = 'ml'
-    MEASURE_CHOICES = (
-        (GRAMM, "Gramm"),
-        (MILLIGRAMM, "Milligramm"),
-        (LITER, "Liter"),
-        (MILLITER, "Milliliter")
-    )
-    measure = models.CharField(max_length=3, choices=MEASURE_CHOICES, default=GRAMM, verbose_name="O'lchov birligi")
-
+    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="O'lchov birligi")
+    aware_amount = models.DecimalField(max_digits=15, decimal_places=2, default=100, verbose_name="Ogohlantirish miqdori")
+    aware_before_days = models.PositiveBigIntegerField(default=3, verbose_name="Kun avval ogohlantir", help_text="Dorining yaroqlilik muddati \
+        tugashidan necha kun avval ogohlantirlishi kerakligini kiriting")
     def __str__(self):
-        return self.name + self.get_measure_display()
-        
+        return self.name + '|' + self.get_measure_display()
+
+    
+    def get_available_amount(self):
+        pass
+    
+    
