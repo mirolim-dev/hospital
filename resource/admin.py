@@ -6,6 +6,7 @@ from .models import (
     InvalidStuff, Medicine, 
     BatchMedicine, MedicineUsage
     )
+from .forms import BatchMedicineAdminForm
 
 from .custom_filter import FilterBatchMedicineByCreatedAtTime
 # Register your models here.
@@ -42,10 +43,11 @@ admin.site.register(Medicine, MedicineAdmin)
 
 
 class BatchMedicineAdmin(admin.ModelAdmin):
-    list_display = ['id', 'medicine', 'amount', 'measure', 'available_till', 'status', 'created_at']
+    form = BatchMedicineAdminForm
+    list_display = ['id', 'medicine', 'amount', 'measure', 'available_amount', 'available_measure', 'available_till', 'status', 'created_at']
     search_fields = ['medicine__name']
     list_filter = ['measure', 'status', 'medicine', FilterBatchMedicineByCreatedAtTime]
-    readonly_fields = ['status', 'created_at']
+    readonly_fields = ['status']
 admin.site.register(BatchMedicine, BatchMedicineAdmin)
 
 
@@ -53,5 +55,5 @@ class MedicineUsageAdmin(admin.ModelAdmin):
     list_display = ['medicine', 'staff', 'amount', 'measure', 'created_at']
     search_fields = ['medicine__name']
     list_filter = ['measure', 'medicine', FilterBatchMedicineByCreatedAtTime]
-    readonly_fields = ['staff', 'created_at']
+    readonly_fields = ['staff']
 admin.site.register(MedicineUsage, MedicineUsageAdmin)
