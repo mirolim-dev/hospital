@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import (
     Room, RoomStuff, Stuff, 
     InvalidStuff, Medicine, 
-    BatchMedicine,
+    BatchMedicine, MedicineUsage
     )
 
 from .custom_filter import FilterBatchMedicineByCreatedAtTime
@@ -47,3 +47,11 @@ class BatchMedicineAdmin(admin.ModelAdmin):
     list_filter = ['measure', 'status', 'medicine', FilterBatchMedicineByCreatedAtTime]
     readonly_fields = ['status', 'created_at']
 admin.site.register(BatchMedicine, BatchMedicineAdmin)
+
+
+class MedicineUsageAdmin(admin.ModelAdmin):
+    list_display = ['medicine', 'staff', 'amount', 'measure', 'created_at']
+    search_fields = ['medicine__name']
+    list_filter = ['measure', 'medicine', FilterBatchMedicineByCreatedAtTime]
+    readonly_fields = ['staff', 'created_at']
+admin.site.register(MedicineUsage, MedicineUsageAdmin)
