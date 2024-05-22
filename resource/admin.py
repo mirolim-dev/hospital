@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from .models import Room, RoomStuff, Stuff, InvalidStuff
+from .models import Room, RoomStuff, Stuff, InvalidStuff, Medicine
 # Register your models here.
 
 class RoomAdmin(admin.ModelAdmin):
@@ -26,3 +26,10 @@ class InvalidStuffAdmin(admin.ModelAdmin):
     list_display = ['id', 'room', 'stuff', 'amount', 'created_at']
     search_fields = ['id', 'room__name', 'stuff__name']
 admin.site.register(InvalidStuff, InvalidStuffAdmin)
+
+
+class MedicineAdmin(admin.ModelAdmin):
+    list_display = ['name', 'measure']
+    search_fields = ['name']
+    list_filter = ['measure']
+admin.site.register(Medicine, MedicineAdmin)

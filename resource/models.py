@@ -45,7 +45,7 @@ class RoomStuff(models.Model):
 class InvalidStuff(models.Model):
     class Meta:
         verbose_name = "Yaroqsiz Jihoz"
-        verbose_name = "Yaroqsiz Jihozlar"
+        verbose_name_plural = "Yaroqsiz Jihozlar"
     room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name="Xona")
     stuff = models.ForeignKey(Stuff, on_delete=models.CASCADE, verbose_name="Jihoz")
     amount = models.PositiveBigIntegerField(default=1, verbose_name="Miqdori")
@@ -59,4 +59,25 @@ class InvalidStuff(models.Model):
         super().clean()
         # validate_invalid_room_and_stuff(self.room, self.stuff)
         validate_invalid_stuff_amount(self.room, self.stuff, self.amount)
-    
+
+
+class Medicine(models.Model):
+    class Meta:
+        verbose_name = "Dori vositasi"
+        verbose_name_plural = "Dori vositalari"
+    name = models.CharField(max_length=150, verbose_name="nomi")
+    GRAMM = "g"
+    MILLIGRAMM = "mg"
+    LITER = "l"
+    MILLITER = 'ml'
+    MEASURE_CHOICES = (
+        (GRAMM, "Gramm"),
+        (MILLIGRAMM, "Milligramm"),
+        (LITER, "Liter"),
+        (MILLITER, "Milliliter")
+    )
+    measure = models.CharField(max_length=3, choices=MEASURE_CHOICES, default=GRAMM, verbose_name="O'lchov birligi")
+
+    def __str__(self):
+        return self.name + self.get_measure_display()
+        
