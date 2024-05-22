@@ -9,5 +9,4 @@ class StaffAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'phone', 'address', 'role', 'is_working']
     search_fields = ['first_name', 'last_name', 'phone']
     list_filter = ['role', 'is_working']
-
 admin.site.register(Staff, StaffAdmin)

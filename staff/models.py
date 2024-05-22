@@ -34,3 +34,15 @@ class Staff(CustomUser):
 
     def display_role(self):
         return self.ROLE_CHOICES[self.role][1]
+
+
+class Attandace(models.Model):
+    class Meta:
+        verbose_name = 'Davomat'
+        verbose_name_plural = "Davomatlar"
+    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, verbose_name="Xodim")
+    tracked_at = models.DateTimeField(auto_now_add=True, verbose_name="Qayd etilgan vaqt")
+
+    def __str__(self):
+        return f"Davomat | {self.staff}"
+    
