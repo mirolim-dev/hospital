@@ -1,6 +1,6 @@
 from django.db import models
 
-from .validators import validate_invalid_room_and_stuff
+from .validators import validate_invalid_stuff_amount
 # Create your models here.
 class Room(models.Model):
     class Meta:
@@ -15,7 +15,7 @@ class Room(models.Model):
         return self.invalidstuff_set.select_related('room', 'stuff')
 
     def get_all_active_stuffs(self):
-        return self.roomstuff_set.filter(amount__gt=0)
+        return self.roomstuff_set.filter(amount__gt=0).values("stuff")
 
 
 class Stuff(models.Model):
@@ -57,6 +57,6 @@ class InvalidStuff(models.Model):
 
     def clean(self) -> None:
         super().clean()
-        validate_invalid_room_and_stuff(self.room, self.stuff)
-        validate_invalid_room_and_stuff(self.room, self.stuff, self.amount)
+        # validate_invalid_room_and_stuff(self.room, self.stuff)
+        validate_invalid_stuff_amount(self.room, self.stuff, self.amount)
     
