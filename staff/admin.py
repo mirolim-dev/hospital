@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Staff, Attandace
 from .forms import StaffAdminForm
+from .custom_filers import FilterAttandanceByTime
 # Register your models here.
 
 class StaffAdmin(admin.ModelAdmin):
@@ -15,7 +16,7 @@ admin.site.register(Staff, StaffAdmin)
 class AttandanceAdmin(admin.ModelAdmin):
     list_display = ['staff', 'get_staff_role', 'tracked_at']
     search_fields = ['staff__first_name', 'staff__last_name']
-    list_filter = ['staff__role']
+    list_filter = ['staff__role', FilterAttandanceByTime]
 
     def get_staff_role(self, obj):
         return obj.staff_id.display_role()

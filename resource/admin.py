@@ -6,6 +6,8 @@ from .models import (
     InvalidStuff, Medicine, 
     BatchMedicine,
     )
+
+from .custom_filter import FilterBatchMedicineByCreatedAtTime
 # Register your models here.
 
 class RoomAdmin(admin.ModelAdmin):
@@ -38,3 +40,10 @@ class MedicineAdmin(admin.ModelAdmin):
     list_filter = ['measure']
 admin.site.register(Medicine, MedicineAdmin)
 
+
+class BatchMedicineAdmin(admin.ModelAdmin):
+    list_display = ['id', 'medicine', 'amount', 'measure', 'available_till', 'status', 'created_at']
+    search_fields = ['medicine__name']
+    list_filter = ['measure', 'status', 'medicine', FilterBatchMedicineByCreatedAtTime]
+    readonly_fields = ['status', 'created_at']
+admin.site.register(BatchMedicine, BatchMedicineAdmin)
