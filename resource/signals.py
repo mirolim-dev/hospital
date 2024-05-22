@@ -33,7 +33,7 @@ def update_batch_medicine_amount(sender, instance, **kwargs):
             batch.status = status
         batch.save()
     batch_medicine = get_last_batch_medicine(medicine)
-    difference_amount_value = get_batch_medicine_amount_value(batch_medicine) - (amount*measure_instance[measure])
+    difference_amount_value = get_batch_medicine_amount_value(batch_medicine) - (amount*measure_instance.values[measure])
 
     def manage_condition(difference_amount_value, batch_medicine):
         if difference_amount_value > 0:

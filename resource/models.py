@@ -104,12 +104,11 @@ class BatchMedicine(models.Model):
     def __str__(self):
         return f"Partiya{self.id}|{self.medicine.name} | {self.amount}"
 
-    def save(self) -> None:
+    def save(self, *args, **kwargs) -> None:
         if not self.pk:
             self.available_amount = self.amount
             self.available_measure = self.measure
-        super().save()
-
+        super(BatchMedicine, self).save(*args, **kwargs)
 
 
 class MedicineUsage(models.Model):
@@ -124,6 +123,6 @@ class MedicineUsage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Foydalanigan vaqti")
 
     def __str__(self):
-        return f"Foydalanilgan dori | {self.medicine__name} | {self.get_measure_display()}"
+        return f"Foydalanilgan dori | {self.medicine.name} | {self.get_measure_display()}"
     
 
