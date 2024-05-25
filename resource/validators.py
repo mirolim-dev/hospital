@@ -11,3 +11,7 @@ def validate_invalid_stuff_amount(room:object, stuff:object, amount:int):
     if room_stuff.amount < amount:
         error_message = f"Xonada siz ko'rsatgan miqdordagi jihoz mavjud emas"
         raise ValidationError(error_message)
+
+
+def validate_medicine_usage_amount(medicine:object, amount, measure):
+    pass

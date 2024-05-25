@@ -1,5 +1,8 @@
 from django.db import models
+from django.db.models import F, Sum, DecimalField, ExpressionWrapper
+from django.contrib import admin
 
+from decimal import Decimal
 from config.variables import MEASURE
 from staff.models import Staff
 from .validators import validate_invalid_stuff_amount
@@ -78,10 +81,21 @@ class Medicine(models.Model):
     def __str__(self):
         return self.name + '|' + self.get_measure_display()
 
-    
-    def get_available_amount(self):
+    @admin.display(description='Barcha miqdor')
+    def get_total_available_amount(self):
+        # measure_instance = MEASURE()
+
+        # # Calculate conversion factor to the medicine's measure unit
+        # conversion_factor = measure_instance.values[self.measure]
+
+        # # Use annotation to calculate the available amount in the medicine's measure unit
+        # total_available = BatchMedicine.objects.filter(medicine=self, status=1).annotate(
+        #     available_amount_converted=ExpressionWrapper(
+        #         F('available_amount') * measure_instance.convert(F('measure'), self.measure)),
+        #         output_field=DecimalField()
+        #     ).aggregate(total=Sum('available_amount_converted'))['total']
+        # return total_available if total_available else Decimal('0')
         pass
-    
 
 class BatchMedicine(models.Model):
     class Meta:
