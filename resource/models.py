@@ -1,8 +1,9 @@
 from django.db import models
 from django.db.models import F, Sum, DecimalField, ExpressionWrapper
 from django.contrib import admin
-
+from django.utils.translation import gettext_lazy as _
 from decimal import Decimal
+
 from config.variables import MEASURE
 from staff.models import Staff
 from .validators import validate_invalid_stuff_amount
@@ -11,9 +12,9 @@ from .validators import validate_invalid_stuff_amount
 # Create your models here.
 class Room(models.Model):
     class Meta:
-        verbose_name = 'Xona'
-        verbose_name_plural = 'Xonalar'
-    name = models.CharField(max_length=60, unique=True, verbose_name="Nomi")
+        verbose_name = _('Xona')
+        verbose_name_plural = _('Xonalar')
+    name = models.CharField(max_length=60, unique=True, verbose_name=_("Nomi"))
 
     def __str__(self) -> str:
         return self.name
@@ -27,11 +28,11 @@ class Room(models.Model):
 
 class Stuff(models.Model):
     class Meta:
-        verbose_name = 'Jihoz'
-        verbose_name_plural = 'Jihozlar'
-    name = models.CharField(max_length=60, unique=True, verbose_name="Nomi")
-    image = models.ImageField(upload_to="Stuff/", blank=True)
-    description = models.TextField(verbose_name="Izoh", help_text="bu yerga mahsulotning harakteristikasini yozilishi kerak")
+        verbose_name = _('Jihoz')
+        verbose_name_plural = _('Jihozlar')
+    name = models.CharField(max_length=60, unique=True, verbose_name=_("Nomi"))
+    image = models.ImageField(upload_to="Stuff/", blank=True, verbose_name=_("rasm"))
+    description = models.TextField(verbose_name=_("Izoh"), help_text=_("bu yerga mahsulotning harakteristikasini yozilishi kerak"))
 
     def __str__(self):
         return self.name
@@ -39,11 +40,11 @@ class Stuff(models.Model):
 
 class RoomStuff(models.Model):
     class Meta:
-        verbose_name = "Xona jihozi"
-        verbose_name_plural = "Xona jihozlari"
-    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name="Xona")
-    stuff = models.ForeignKey(Stuff, on_delete=models.CASCADE, verbose_name="Jihoz")
-    amount = models.PositiveBigIntegerField(default=1, verbose_name="Miqdor")
+        verbose_name = _("Xona jihozi")
+        verbose_name_plural = _("Xona jihozlari")
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name=_("Xona"))
+    stuff = models.ForeignKey(Stuff, on_delete=models.CASCADE, verbose_name=_("Jihoz"))
+    amount = models.PositiveBigIntegerField(default=1, verbose_name=_("Miqdor"))
     
     def __str__(self):
         return f"{self.room.name} | {self.stuff.name}"
@@ -51,13 +52,13 @@ class RoomStuff(models.Model):
 
 class InvalidStuff(models.Model):
     class Meta:
-        verbose_name = "Yaroqsiz Jihoz"
-        verbose_name_plural = "Yaroqsiz Jihozlar"
-    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name="Xona")
-    stuff = models.ForeignKey(Stuff, on_delete=models.CASCADE, verbose_name="Jihoz")
-    amount = models.PositiveBigIntegerField(default=1, verbose_name="Miqdori")
-    description = models.TextField(verbose_name="Izoh", help_text="Yaroqsizga chiqarish sababi")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Yaroqsizga chiqarilgan vaqt")
+        verbose_name = _("Yaroqsiz Jihoz")
+        verbose_name_plural = _("Yaroqsiz Jihozlar")
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name=_("Xona"))
+    stuff = models.ForeignKey(Stuff, on_delete=models.CASCADE, verbose_name=_("Jihoz"))
+    amount = models.PositiveBigIntegerField(default=1, verbose_name=_("Miqdori"))
+    description = models.TextField(verbose_name="Izoh", help_text=_("Yaroqsizga chiqarish sababi"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Yaroqsizga chiqarilgan vaqt"))
 
     def __str__(self):
         return f"{self.room.name} | {self.stuff.name} | {self.amount}"
@@ -70,18 +71,17 @@ class InvalidStuff(models.Model):
 
 class Medicine(models.Model):
     class Meta:
-        verbose_name = "Dori vositasi"
-        verbose_name_plural = "Dori vositalari"
-    name = models.CharField(max_length=150, verbose_name="nomi")
-    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="O'lchov birligi")
-    aware_amount = models.DecimalField(max_digits=15, decimal_places=2, default=100, verbose_name="Ogohlantirish miqdori")
-    aware_before_days = models.PositiveBigIntegerField(default=3, verbose_name="Kun avval ogohlantir", help_text="Dorining yaroqlilik muddati \
-        tugashidan necha kun avval ogohlantirlishi kerakligini kiriting")
-    description = models.TextField(verbose_name="Dori xususiyati", null=True)
+        verbose_name = _("Dori vositasi")
+        verbose_name_plural = _("Dori vositalari")
+    name = models.CharField(max_length=150, verbose_name=_("nomi"))
+    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name=_("O'lchov birligi"))
+    aware_amount = models.DecimalField(max_digits=15, decimal_places=2, default=100, verbose_name=_("Ogohlantirish miqdori"))
+    aware_before_days = models.PositiveBigIntegerField(default=3, verbose_name=_("Kun avval ogohlantir"), help_text=_("Dorining yaroqlilik muddati tugashidan necha kun avval ogohlantirlishi kerakligini kiriting"))
+    description = models.TextField(verbose_name=_("Dori xususiyati"), null=True)
     def __str__(self):
         return self.name + '|' + self.get_measure_display()
 
-    @admin.display(description='Barcha miqdor')
+    @admin.display(description=_('Barcha miqdor'))
     def get_total_available_amount(self):
         # measure_instance = MEASURE()
 
@@ -99,21 +99,21 @@ class Medicine(models.Model):
 
 class BatchMedicine(models.Model):
     class Meta:
-        verbose_name = "Dori Partiyasi"
-        verbose_name_plural = "Dorilar Partiyalari"
-    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, verbose_name="Dori")
-    amount = models.DecimalField(max_digits=15, decimal_places=2, default=1, verbose_name="miqdor")
-    available_amount = models.DecimalField(max_digits=15, decimal_places=2, default=1, verbose_name="mavjud miqdori")
-    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="Miqdor o'lchovi")
-    available_measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="Mavjud miqdor o'lchovi")
-    available_till = models.DateField(verbose_name="Yaroqlilik muddati")
+        verbose_name = _("Dori Partiyasi")
+        verbose_name_plural = _("Dorilar Partiyalari")
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, verbose_name=_("Dori"))
+    amount = models.DecimalField(max_digits=15, decimal_places=2, default=1, verbose_name=_("miqdor"))
+    available_amount = models.DecimalField(max_digits=15, decimal_places=2, default=1, verbose_name=_("mavjud miqdori"))
+    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name=_("Miqdor o'lchovi"))
+    available_measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name=_("Mavjud miqdor o'lchovi"))
+    available_till = models.DateField(verbose_name=_("Yaroqlilik muddati"))
     STATUS_CHOICES = (
-        (0, "Yaroqlilik muddati tugagan"),
-        (1, "Active"),
-        (2, "Tugatilgan")
+        (0, _("Yaroqlilik muddati tugagan")),
+        (1, _("Active")),
+        (2, _("Tugatilgan"))
     )
-    status = models.IntegerField(choices=STATUS_CHOICES, default=1, verbose_name="Xolati")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Keltirilgan vaqt", null=True)
+    status = models.IntegerField(choices=STATUS_CHOICES, default=1, verbose_name=_("Xolati"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Keltirilgan vaqt"), null=True)
 
     def __str__(self):
         return f"Partiya{self.id}|{self.medicine.name} | {self.amount}"
@@ -127,16 +127,16 @@ class BatchMedicine(models.Model):
 
 class MedicineUsage(models.Model):
     class Meta:
-        verbose_name = "Foydalanilgan dori"
-        verbose_name_plural = "Fodalanilgan dorilar"
-    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, verbose_name="Dori")
-    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, null=True, verbose_name="Xodim")
-    amount = models.DecimalField(max_digits=15, decimal_places=2, verbose_name="miqdor", default=1)
-    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name="O'lchov birligi")
-    description = models.TextField(verbose_name="Izoh")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Foydalanigan vaqti")
+        verbose_name = _("Foydalanilgan dori")
+        verbose_name_plural = _("Fodalanilgan dorilar")
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, verbose_name=_("Dori"))
+    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, null=True, verbose_name=_("Xodim"))
+    amount = models.DecimalField(max_digits=15, decimal_places=2, verbose_name=_("miqdor"), default=1)
+    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name=_("O'lchov birligi"))
+    description = models.TextField(verbose_name=_("Izoh"))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Foydalanigan vaqti"))
 
     def __str__(self):
-        return f"Foydalanilgan dori | {self.medicine.name} | {self.get_measure_display()}"
+        return f"{self.Meta().verbose_name} | {self.medicine.name} | {self.get_measure_display()}"
     
 
