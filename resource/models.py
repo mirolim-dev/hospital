@@ -128,7 +128,7 @@ class BatchMedicine(models.Model):
 class MedicineUsage(models.Model):
     class Meta:
         verbose_name = _("Foydalanilgan dori")
-        verbose_name_plural = _("Fodalanilgan dorilar")
+        verbose_name_plural = _("Foydalanilgan dorilar")
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, verbose_name=_("Dori"))
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE, null=True, verbose_name=_("Xodim"))
     amount = models.DecimalField(max_digits=15, decimal_places=2, verbose_name=_("miqdor"), default=1)
@@ -140,3 +140,16 @@ class MedicineUsage(models.Model):
         return f"{self.Meta().verbose_name} | {self.medicine.name} | {self.get_measure_display()}"
     
 
+class InvalidMedicine(models.Model):
+    class Meta:
+        verbose_name = _("Yaroqsiz dori")
+        verbose_name_plural = _("Yaroqsiz dorilar")
+    batch = models.ForeignKey(BatchMedicine, on_delete=models.CASCADE, verbose_name=_("Partiya"))
+    amount = models.DecimalField(max_digits=15, decimal_places=2, verbose_name=_("Miqdor"), null=True)
+    measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name=_("O'lchov birligi"))
+    reason = models.TextField(verbose_name=_("Sababi"))
+    tracked_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Qayd etilgan vaqt"))
+
+    def __str__(self)->str:
+        return f"{self.batch.Meta().verbose_name}-{self.batch.id} | {self.batch.medicine.name}"
+    

@@ -4,7 +4,8 @@ from django.contrib import admin
 from .models import (
     Room, RoomStuff, Stuff, 
     InvalidStuff, Medicine, 
-    BatchMedicine, MedicineUsage
+    BatchMedicine, MedicineUsage,
+    InvalidMedicine
     )
 from .forms import BatchMedicineAdminForm
 
@@ -57,3 +58,7 @@ class MedicineUsageAdmin(admin.ModelAdmin):
     list_filter = ['measure', 'medicine', FilterBatchMedicineByCreatedAtTime]
     readonly_fields = ['staff']
 admin.site.register(MedicineUsage, MedicineUsageAdmin)
+
+
+class InvalidMedicineAdmin(admin.ModelAdmin):
+    list_display = ['batch', '']
