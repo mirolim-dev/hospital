@@ -127,7 +127,10 @@ LANGUAGES = [
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
-
+EXCLUDE_PATHS = [
+    'env',  # Exclude the 'env' directory
+    'dist-info',  # Exclude directories ending with 'dist-info'
+]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
