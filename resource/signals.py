@@ -5,6 +5,7 @@ from config.variables import MEASURE
 from .models import (
     InvalidStuff, RoomStuff, 
     MedicineUsage, Medicine, BatchMedicine,
+    InvalidMedicine,
     )
 
 @receiver(post_save, sender=InvalidStuff)
@@ -49,3 +50,8 @@ def update_batch_medicine_amount(sender, instance, **kwargs):
             batch_medicine.status = 2
             batch_medicine.save()
     manage_condition(difference_amount_value, batch_medicine)
+
+
+# @receiver(post_save, sender=InvalidMedicine)
+# def update_batch_medicine_amount_by_invalid_medicine(sender, instance, **kwargs):
+#     batch = instance.batch

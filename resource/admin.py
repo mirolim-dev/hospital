@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from django.utils.translation import gettext_lazy as _
 
 from .models import (
     Room, RoomStuff, Stuff, 
@@ -61,8 +61,13 @@ admin.site.register(MedicineUsage, MedicineUsageAdmin)
 
 
 class InvalidMedicineAdmin(admin.ModelAdmin):
-    list_display = ['batch', 'amount', 'measure', 'tracked_at']
+    list_display = ['medicine', 'batch_displation', 'amount', 'measure', 'tracked_at']
     search_fields = ['batch__medicine__name']
     list_filter = ['measure']
+    list_display_links = ['medicine', 'batch_displation']
+
+    def batch_displation(self, object):
+        return object.id
+    batch_displation.short_description = _("Partiya raqami")
 admin.site.register(InvalidMedicine, InvalidMedicineAdmin)
 

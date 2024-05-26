@@ -6,7 +6,10 @@ from decimal import Decimal
 
 from config.variables import MEASURE
 from staff.models import Staff
-from .validators import validate_invalid_stuff_amount
+from .validators import (
+    validate_invalid_stuff_amount,
+    validate_invalid_medicine_amount,
+)
 
 
 # Create your models here.
@@ -116,7 +119,7 @@ class BatchMedicine(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Keltirilgan vaqt"), null=True)
 
     def __str__(self):
-        return f"Partiya{self.id}|{self.medicine.name} | {self.amount}"
+        return f"ID: {self.pk} | {BatchMedicine._meta.verbose_name} | {self.medicine.name}"
 
     def save(self, *args, **kwargs) -> None:
         if not self.pk:
@@ -137,13 +140,14 @@ class MedicineUsage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Foydalanigan vaqti"))
 
     def __str__(self):
-        return f"{self.Meta().verbose_name} | {self.medicine.name} | {self.get_measure_display()}"
+        return f"{MedicineUsage._meta.verbose_name} | {self.medicine.name} | {self.get_measure_display()}"
     
 
 class InvalidMedicine(models.Model):
     class Meta:
         verbose_name = _("Yaroqsiz dori")
         verbose_name_plural = _("Yaroqsiz dorilar")
+    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, null=True, verbose_name=_("Dori"))
     batch = models.ForeignKey(BatchMedicine, on_delete=models.CASCADE, verbose_name=_("Partiya"))
     amount = models.DecimalField(max_digits=15, decimal_places=2, verbose_name=_("Miqdor"), null=True)
     measure = models.CharField(max_length=5, choices=MEASURE().choices, default=MEASURE().GRAMM, verbose_name=_("O'lchov birligi"))
@@ -151,5 +155,10 @@ class InvalidMedicine(models.Model):
     tracked_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Qayd etilgan vaqt"))
 
     def __str__(self)->str:
-        return f"{self.batch.Meta().verbose_name}-{self.batch.id} | {self.batch.medicine.name}"
+        return f"{BatchMedicine._meta.verbose_name}-{self.batch.id} | {self.batch.medicine.name}"
     
+    def clean(self) -> None:
+        super().clean()
+        validate_invalid_medicine_amount(self.batch, self.amount, self.measure)
+
+

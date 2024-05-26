@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-26 17:32+0500\n"
+"POT-Creation-Date: 2024-05-26 19:30+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\resource\admin.py:71
+#, fuzzy
+#| msgid "Dori Partiyasi"
+msgid "Partiya raqami"
+msgstr "Medicine party"
 
 #: .\resource\apps.py:7
 msgid "Resurslar"
@@ -42,200 +48,213 @@ msgstr "During the week"
 msgid "Oy davomida"
 msgstr "During the month"
 
-#: .\resource\models.py:15 .\resource\models.py:45 .\resource\models.py:57
+#: .\resource\models.py:18 .\resource\models.py:48 .\resource\models.py:60
 msgid "Xona"
 msgstr "Room"
 
-#: .\resource\models.py:16
+#: .\resource\models.py:19
 msgid "Xonalar"
 msgstr "Rooms"
 
-#: .\resource\models.py:17 .\resource\models.py:33
+#: .\resource\models.py:20 .\resource\models.py:36
 msgid "Nomi"
 msgstr "Name"
 
-#: .\resource\models.py:31 .\resource\models.py:46 .\resource\models.py:58
+#: .\resource\models.py:34 .\resource\models.py:49 .\resource\models.py:61
 msgid "Jihoz"
 msgstr "Stuff"
 
-#: .\resource\models.py:32
+#: .\resource\models.py:35
 #, fuzzy
 #| msgid "Jihoz"
 msgid "Jihozlar"
 msgstr "Stuff"
 
-#: .\resource\models.py:34
+#: .\resource\models.py:37
 msgid "rasm"
 msgstr "image"
 
-#: .\resource\models.py:35 .\resource\models.py:136
+#: .\resource\models.py:38 .\resource\models.py:139
 msgid "Izoh"
 msgstr "Description"
 
-#: .\resource\models.py:35
+#: .\resource\models.py:38
 msgid "bu yerga mahsulotning harakteristikasini yozilishi kerak"
 msgstr "the characteristics of the product should be written here"
 
-#: .\resource\models.py:43
+#: .\resource\models.py:46
 msgid "Xona jihozi"
 msgstr "Room Stuff"
 
-#: .\resource\models.py:44
+#: .\resource\models.py:47
 msgid "Xona jihozlari"
 msgstr "Room Stuffs"
 
-#: .\resource\models.py:47 .\resource\models.py:148
+#: .\resource\models.py:50 .\resource\models.py:152
 msgid "Miqdor"
 msgstr "Amount"
 
-#: .\resource\models.py:55
+#: .\resource\models.py:58
 msgid "Yaroqsiz Jihoz"
 msgstr "Invalid stuff"
 
-#: .\resource\models.py:56
+#: .\resource\models.py:59
 msgid "Yaroqsiz Jihozlar"
 msgstr "Invalid stuffs"
 
-#: .\resource\models.py:59
+#: .\resource\models.py:62
 msgid "Miqdori"
 msgstr "Amount"
 
-#: .\resource\models.py:60
+#: .\resource\models.py:63
 msgid "Yaroqsizga chiqarish sababi"
 msgstr "Reason for invalidation"
 
-#: .\resource\models.py:61
+#: .\resource\models.py:64
 msgid "Yaroqsizga chiqarilgan vaqt"
 msgstr "Invalidation time"
 
-#: .\resource\models.py:74
+#: .\resource\models.py:77
 msgid "Dori vositasi"
 msgstr "Medicine"
 
-#: .\resource\models.py:75
+#: .\resource\models.py:78
 msgid "Dori vositalari"
 msgstr "Medicines"
 
-#: .\resource\models.py:76
+#: .\resource\models.py:79
 msgid "nomi"
 msgstr "name"
 
-#: .\resource\models.py:77 .\resource\models.py:135 .\resource\models.py:149
+#: .\resource\models.py:80 .\resource\models.py:138 .\resource\models.py:153
 msgid "O'lchov birligi"
 msgstr "Measure"
 
-#: .\resource\models.py:78
+#: .\resource\models.py:81
 msgid "Ogohlantirish miqdori"
 msgstr "Amount of warning"
 
-#: .\resource\models.py:79
+#: .\resource\models.py:82
 msgid "Kun avval ogohlantir"
 msgstr "Warn the day before"
 
-#: .\resource\models.py:79
+#: .\resource\models.py:82
 msgid ""
 "Dorining yaroqlilik muddati tugashidan necha kun avval ogohlantirlishi "
 "kerakligini kiriting"
 msgstr "How many days before the expiration date of the drug enter required"
 
-#: .\resource\models.py:80
+#: .\resource\models.py:83
 msgid "Dori xususiyati"
 msgstr "Drug feature"
 
-#: .\resource\models.py:84
+#: .\resource\models.py:87
 msgid "Barcha miqdor"
 msgstr "Total amount"
 
-#: .\resource\models.py:102
+#: .\resource\models.py:105
 msgid "Dori Partiyasi"
 msgstr "Medicine party"
 
-#: .\resource\models.py:103
+#: .\resource\models.py:106
 msgid "Dorilar Partiyalari"
 msgstr "Medicine parties"
 
-#: .\resource\models.py:104 .\resource\models.py:132
+#: .\resource\models.py:107 .\resource\models.py:135 .\resource\models.py:150
 msgid "Dori"
 msgstr "Medicine"
 
-#: .\resource\models.py:105 .\resource\models.py:134
+#: .\resource\models.py:108 .\resource\models.py:137
 msgid "miqdor"
 msgstr "amount"
 
-#: .\resource\models.py:106
+#: .\resource\models.py:109
 msgid "mavjud miqdori"
 msgstr "available amoun"
 
-#: .\resource\models.py:107
+#: .\resource\models.py:110
 msgid "Miqdor o'lchovi"
 msgstr "Measure amount"
 
-#: .\resource\models.py:108
+#: .\resource\models.py:111
 msgid "Mavjud miqdor o'lchovi"
 msgstr "measure for available amount"
 
-#: .\resource\models.py:109
+#: .\resource\models.py:112
 msgid "Yaroqlilik muddati"
 msgstr "Expiry date"
 
-#: .\resource\models.py:111
+#: .\resource\models.py:114
 msgid "Yaroqlilik muddati tugagan"
 msgstr "Expired"
 
-#: .\resource\models.py:112
+#: .\resource\models.py:115
 msgid "Active"
 msgstr "Active"
 
-#: .\resource\models.py:113
+#: .\resource\models.py:116
 msgid "Tugatilgan"
 msgstr "Finished"
 
-#: .\resource\models.py:115
+#: .\resource\models.py:118
 msgid "Xolati"
 msgstr "status"
 
-#: .\resource\models.py:116
+#: .\resource\models.py:119
 msgid "Keltirilgan vaqt"
 msgstr "Quoted time"
 
-#: .\resource\models.py:130
+#: .\resource\models.py:133
 msgid "Foydalanilgan dori"
 msgstr "THe drug used"
 
-#: .\resource\models.py:131
+#: .\resource\models.py:134
 msgid "Foydalanilgan dorilar"
 msgstr "Prescribed drugs"
 
-#: .\resource\models.py:133
+#: .\resource\models.py:136
 msgid "Xodim"
 msgstr "Employee"
 
-#: .\resource\models.py:137
+#: .\resource\models.py:140
 msgid "Foydalanigan vaqti"
 msgstr "Time used"
 
-#: .\resource\models.py:145
+#: .\resource\models.py:148
 #, fuzzy
 msgid "Yaroqsiz dori"
 msgstr "Invalid Medicine"
 
-#: .\resource\models.py:146
-
+#: .\resource\models.py:149
 msgid "Yaroqsiz dorilar"
 msgstr "Invalid Medicines"
 
-#: .\resource\models.py:147
+#: .\resource\models.py:151
 #, fuzzy
 #| msgid "Dori Partiyasi"
 msgid "Partiya"
 msgstr "Medicine party"
 
-#: .\resource\models.py:150
+#: .\resource\models.py:154
 msgid "Sababi"
 msgstr "Reason"
 
-#: .\resource\models.py:151
+#: .\resource\models.py:155
 #, fuzzy
 #| msgid "Keltirilgan vaqt"
 msgid "Qayd etilgan vaqt"
 msgstr "Quoted time"
+
+#: .\resource\validators.py:18
+msgid "Xonada siz ko'rsatgan miqdordagi jihoz mavjud emas"
+msgstr "The room does not have the number of appliances you specified"
+
+#: .\resource\validators.py:29
+msgid "Kiritayotgan miqdoringiz 0 bo'lishi mumkun emas"
+msgstr "The amount you are entering cannot be 0"
+
+#: .\resource\validators.py:33
+#, python-brace-format
+msgid ""
+"Ushbu partiyada kiritilgan miqdordagi {medicine_name} mavjud emas. Ushbu partiyada qolgan miqdor {amount} {measure}"
+msgstr "This lot does not contain {medicine_name} in the quantity entered. Amount remaining in this batch {amount} {measure}"
