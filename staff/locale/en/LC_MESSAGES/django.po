@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-26 14:02+0500\n"
+"POT-Creation-Date: 2024-05-26 14:32+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,10 +131,10 @@ msgstr "Tracked time"
 #: .\staff\validators.py:12
 #, python-brace-format
 msgid "File turlari quyidagilardan biri bo'lishligi kerak {allowed_types}"
-msgstr ""
+msgstr "File types must be one of the following {allowed_types}"
 
 #: .\staff\validators.py:20
-#, python-brace-format
-msgid "File types must be one of the following {allowed_types}"
-"Filening maksimal hajmi {max_size} MB bo'lishligi kerak. Lekin sizning faylingiz hajmi {file_size}"
+#, fuzzy, python-brace-format
+
+msgid "Filening maksimal hajmi {max_size} MB bo'lishligi kerak. Lekin sizning faylingiz hajmi {file_size}"
 msgstr "Maximum file size should be {max_size} MB. But your file size is {file_size}"

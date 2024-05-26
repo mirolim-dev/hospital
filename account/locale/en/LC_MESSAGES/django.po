@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-26 14:32+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\account\models.py:33
+msgid "Ism"
+msgstr "First name"
+
+#: .\account\models.py:34
+msgid "Familya"
+msgstr "Last name"
+
+#: .\account\models.py:35
+msgid "Manzil"
+msgstr "Address"
+
+#: .\account\models.py:38
+msgid "Telefon raqami '+9989999999' formatida kiritilishi kerak. 15 tagacha raqamga ruxsat beriladi."
+msgstr "Phone number must be entered in the format: '+9989999999'. Up to 15 digits allowed."
+
+#: .\account\models.py:40
+msgid "Telefon raqami"
+msgstr "Phone number"
+
+#: .\account\models.py:43
+msgid "Ayol"
+msgstr "Female"
+
+#: .\account\models.py:44
+msgid "Erkak"
+msgstr "Male"
+
+#: .\account\models.py:46
+msgid "Jinsi"
+msgstr "Gender"
+
+#: .\account\models.py:48
+msgid "O'zgartirilgan vaqti"
+msgstr "Edited time"

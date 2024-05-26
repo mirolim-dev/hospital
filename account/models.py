@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, AbstractUser
 from django.db import models
 from django.core.validators import RegexValidator
+from django.utils.translation import gettext_lazy as _
+
 
 class CustomUserManager(BaseUserManager):
     def create(self, phone, password=None, **extra_fields):
@@ -28,22 +30,22 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         # abstract = True
 
     username = models.CharField(max_length=255, unique=True)
-    first_name = models.CharField(max_length=25, blank=True, verbose_name="Ism")
-    last_name = models.CharField(max_length=255, blank=True, verbose_name="Familya")
-    address = models.CharField(max_length=255, blank=True, verbose_name="Manzil")
+    first_name = models.CharField(max_length=25, blank=True, verbose_name=_("Ism"))
+    last_name = models.CharField(max_length=255, blank=True, verbose_name=_("Familya"))
+    address = models.CharField(max_length=255, blank=True, verbose_name=_("Manzil"))
     phone_regex = RegexValidator(
         regex=r'^\+?1?\d{9,15}$',
-        message="Phone number must be entered in the format: '+9989999999'. Up to 15 digits allowed."
+        message=_("Telefon raqami '+9989999999' formatida kiritilishi kerak. 15 tagacha raqamga ruxsat beriladi.")
     )
-    phone = models.CharField(validators=[phone_regex], max_length=17, unique=True, verbose_name="Telefon raqami")
+    phone = models.CharField(validators=[phone_regex], max_length=17, unique=True, verbose_name=_("Telefon raqami"))
     email = models.EmailField(unique=True, blank=True, null=True)
     GENDER_CHOICES = (
-        (0, "Female"),
-        (1, "Male")
+        (0, _("Ayol")),
+        (1, _("Erkak"))
     )
-    gender = models.IntegerField(choices=GENDER_CHOICES, default=1, verbose_name="Jinsi")
+    gender = models.IntegerField(choices=GENDER_CHOICES, default=1, verbose_name=_("Jinsi"))
 
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="O'zgartirilgan vaqti")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("O'zgartirilgan vaqti"))
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
