@@ -151,8 +151,6 @@ JAZZMIN_SETTINGS = {
     "welcome_sign": "Welcome to the Meridian",
     "topmenu_links": [
         {"model": "auth.User"},
-        # Language switcher links
-
     ],
     "show_sidebar": True,
     "navigation_expanded": True,

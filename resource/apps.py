@@ -6,5 +6,5 @@ class ResourceConfig(AppConfig):
     name = 'resource'
     verbose_name = _("Resurslar")
 
-    def ready(self):
+    def ready(self)->None:
         from resource import signals

@@ -6,3 +6,5 @@ class StaffConfig(AppConfig):
     name = 'staff'
     verbose_name = _("Xodimlar")
 
+    def ready(self) -> None:
+        from staff import signals
