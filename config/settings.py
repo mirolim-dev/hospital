@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -116,6 +117,19 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+LANGUAGES = [
+    ('uz', 'Russian'),
+    ('en', 'English'),
+    ('ru', 'Russian'),
+    # Add other languages as needed
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+
+
 
 
 # Static files (CSS, JavaScript, Images)
