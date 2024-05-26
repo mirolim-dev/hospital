@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,9 +48,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -110,27 +110,23 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'uz-uz'
+LANGUAGE_CODE = 'uz'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
 USE_TZ = True
 
 LANGUAGES = [
-    ('uz', 'Russian'),
-    ('en', 'English'),
+    ('uz', 'Uzbek'),
     ('ru', 'Russian'),
-    # Add other languages as needed
+    ('en', 'Engish'),
 ]
+
 
 LOCALE_PATHS = [
-    BASE_DIR / 'locale',
+    os.path.join(BASE_DIR, 'locale'),
 ]
-
-
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -152,7 +148,9 @@ JAZZMIN_SETTINGS = {
     "topmenu_links": [
         {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
         {"model": "auth.User"},
-        {"app": "books"},
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+        # Language switcher links
+
     ],
     "show_sidebar": True,
     "navigation_expanded": True,
@@ -170,4 +168,5 @@ JAZZMIN_SETTINGS = {
     "custom_css": None,
     "custom_js": None,
     "show_ui_builder": True,
+    "language_chooser": True
 }
