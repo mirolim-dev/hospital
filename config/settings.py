@@ -149,9 +149,7 @@ JAZZMIN_SETTINGS = {
     "site_header": "My Admin",
     "welcome_sign": "Welcome to the Admin Panel",
     "topmenu_links": [
-        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
         {"model": "auth.User"},
-        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
         # Language switcher links
 
     ],
@@ -159,7 +157,6 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": True,
     "hide_apps": [],
     "hide_models": [],
-    "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
     "icons": {
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
