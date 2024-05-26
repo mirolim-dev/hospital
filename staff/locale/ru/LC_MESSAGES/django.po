@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-26 14:02+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\staff\apps.py:7 .\staff\models.py:10
+msgid "Xodimlar"
+msgstr "Сотрудники"
+
+#: .\staff\custom_filers.py:8
+msgid "Vaqt bo'yicha filterlash"
+msgstr "Фильтровать по времени"
+
+#: .\staff\custom_filers.py:13
+msgid "Bugun"
+msgstr "Сегодня"
+
+#: .\staff\custom_filers.py:14
+msgid "Kecha"
+msgstr "Вчера"
+
+#: .\staff\custom_filers.py:15
+msgid "Hafta davomida"
+msgstr "В течение недели"
+
+#: .\staff\custom_filers.py:16
+msgid "Oy davomida"
+msgstr "В течение месяца"
+
+#: .\staff\models.py:9 .\staff\models.py:44
+msgid "Xodim"
+msgstr "Сотрудник"
+
+#: .\staff\models.py:11
+msgid "Passport nusxasi"
+msgstr "Копия паспорта"
+
+#: .\staff\models.py:12
+msgid "Maosh"
+msgstr "Зарплата"
+
+#: .\staff\models.py:12
+msgid "UZS da kiritilsin"
+msgstr "Введите в сумах"
+
+#: .\staff\models.py:13
+msgid "rasm"
+msgstr "картина"
+
+#: .\staff\models.py:13
+msgid "3X4 rasm yuklansin"
+msgstr "Загрузите изображение 3х4."
+
+#: .\staff\models.py:15
+msgid "Mudir"
+msgstr "Старший мастер"
+
+#: .\staff\models.py:16
+msgid "Katta hamshira"
+msgstr "Старшая медсестра"
+
+#: .\staff\models.py:17
+msgid "Doctor"
+msgstr "Старшая медсестра"
+
+#: .\staff\models.py:18
+msgid "Hamshira"
+msgstr "Медсестра"
+
+#: .\staff\models.py:19
+msgid "Farrosh"
+msgstr "Дворник"
+
+#: .\staff\models.py:20
+msgid "Qorovul"
+msgstr "Сторожить"
+
+#: .\staff\models.py:21
+msgid "Haydovchi"
+msgstr "Водитель"
+
+#: .\staff\models.py:22
+msgid "Resurs nazoratchisi"
+msgstr "Контроллер ресурсов"
+
+#: .\staff\models.py:24
+msgid "Hodim turi"
+msgstr "Тип сотрудника"
+
+#: .\staff\models.py:25
+msgid "Ishlayotganlik statusi"
+msgstr "Текущий статус"
+
+#: .\staff\models.py:26
+msgid "Izoh"
+msgstr "Объяснение"
+
+#: .\staff\models.py:26
+msgid ""
+"Qo'shimcha izohlar uchun. Hodim nima ish qilishi va ho kazo larni kiritsa bo'ladi"
+msgstr "Для дальнейших комментариев. Чем и чем занимается сотрудник? будет"
+
+#: .\staff\models.py:42
+msgid "Davomat"
+msgstr "посещаемость"
+
+#: .\staff\models.py:43
+msgid "Davomatlar"
+msgstr "Посещаемость"
+
+#: .\staff\models.py:45
+msgid "Qayd etilgan vaqt"
+msgstr "Записанное время"
+
+#: .\staff\validators.py:12
+#, python-brace-format
+msgid "File turlari quyidagilardan biri bo'lishligi kerak {allowed_types}"
+msgstr "Типы файлов должны быть одним из следующих {allowed_types}"
+
+#: .\staff\validators.py:20
+#, python-brace-format
+msgid "Filening maksimal hajmi {max_size} MB bo'lishligi kerak. Lekin sizning faylingiz hajmi {file_size}"
+msgstr "Максимальный размер файла должен составлять {max_size} МБ. Но ваш размер файла — {file_size}"

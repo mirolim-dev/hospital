@@ -1,28 +1,29 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from account.models import CustomUser
 from .validators import validate_file
 # Create your models here.
 class Staff(CustomUser):
     class Meta:
-        verbose_name = "Xodim"
-        verbose_name_plural = "Xodimlar"
-    passport = models.FileField(upload_to="Staff/passport", verbose_name="Passport nusxasi")
-    salary = models.DecimalField(max_digits=15, decimal_places=2, default=0, verbose_name="Maosh", help_text="UZS da kiritilsin")
-    image = models.ImageField(upload_to="Staff/image3x4", verbose_name="rasm", help_text="3X4 rasm yuklansin")
+        verbose_name = _("Xodim")
+        verbose_name_plural = _("Xodimlar")
+    passport = models.FileField(upload_to="Staff/passport", verbose_name=_("Passport nusxasi"))
+    salary = models.DecimalField(max_digits=15, decimal_places=2, default=0, verbose_name=_("Maosh"), help_text=_("UZS da kiritilsin"))
+    image = models.ImageField(upload_to="Staff/image3x4", verbose_name=_("rasm"), help_text=_("3X4 rasm yuklansin"))
     ROLE_CHOICES = (
-        (1, "Mudir"),
-        (2, "Katta hamshira"),
-        (3, "Doctor"),
-        (4, "Hamshira"),
-        (5, "Farrosh"),
-        (6, "Qorovul"),
-        (7, "Haydovchi"),
-        (8, "Resurs nazoratchisi"),
+        (1, _("Mudir")),
+        (2, _("Katta hamshira")),
+        (3, _("Doctor")),
+        (4, _("Hamshira")),
+        (5, _("Farrosh")),
+        (6, _("Qorovul")),
+        (7, _("Haydovchi")),
+        (8, _("Resurs nazoratchisi")),
     )
-    role = models.IntegerField(choices=ROLE_CHOICES, default=3, verbose_name="Hodim turi")
-    is_working = models.BooleanField(default=True, verbose_name="Ishlayotganlik statusi")
-    description = models.TextField(verbose_name="Izoh", help_text="Qo'shimcha izohlar uchun. Hodim nima ish qilishi va ho kazo larni kiritsa bo'ladi")
+    role = models.IntegerField(choices=ROLE_CHOICES, default=3, verbose_name=_("Hodim turi"))
+    is_working = models.BooleanField(default=True, verbose_name=_("Ishlayotganlik statusi"))
+    description = models.TextField(verbose_name=_("Izoh"), help_text=_("Qo'shimcha izohlar uchun. Hodim nima ish qilishi va ho kazo larni kiritsa bo'ladi"))
 
     def __str__(self):
         return self.get_full_name()
@@ -38,11 +39,11 @@ class Staff(CustomUser):
 
 class Attandace(models.Model):
     class Meta:
-        verbose_name = 'Davomat'
-        verbose_name_plural = "Davomatlar"
-    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, verbose_name="Xodim")
-    tracked_at = models.DateTimeField(auto_now_add=True, verbose_name="Qayd etilgan vaqt")
+        verbose_name = _('Davomat')
+        verbose_name_plural = _("Davomatlar")
+    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, verbose_name=_("Xodim"))
+    tracked_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Qayd etilgan vaqt"))
 
     def __str__(self):
-        return f"Davomat | {self.staff}"
+        return f"{_('Davomat')} | {self.staff}"
     

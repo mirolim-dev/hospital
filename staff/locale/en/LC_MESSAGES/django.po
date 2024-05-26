@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-26 14:02+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\staff\apps.py:7 .\staff\models.py:10
+msgid "Xodimlar"
+msgstr "Employees"
+
+#: .\staff\custom_filers.py:8
+msgid "Vaqt bo'yicha filterlash"
+msgstr "Filter by time"
+
+#: .\staff\custom_filers.py:13
+msgid "Bugun"
+msgstr "Today"
+
+#: .\staff\custom_filers.py:14
+msgid "Kecha"
+msgstr "Yesterday"
+
+#: .\staff\custom_filers.py:15
+msgid "Hafta davomida"
+msgstr "During the week"
+
+#: .\staff\custom_filers.py:16
+msgid "Oy davomida"
+msgstr "During the month"
+
+#: .\staff\models.py:9 .\staff\models.py:44
+msgid "Xodim"
+msgstr "Employee"
+
+#: .\staff\models.py:11
+msgid "Passport nusxasi"
+msgstr "Passport copy"
+
+#: .\staff\models.py:12
+msgid "Maosh"
+msgstr "Salary"
+
+#: .\staff\models.py:12
+msgid "UZS da kiritilsin"
+msgstr "Enter in UZS"
+
+#: .\staff\models.py:13
+msgid "rasm"
+msgstr "picture"
+
+#: .\staff\models.py:13
+msgid "3X4 rasm yuklansin"
+msgstr "Upload 3x4 image"
+
+#: .\staff\models.py:15
+msgid "Mudir"
+msgstr "Headmaster"
+
+#: .\staff\models.py:16
+msgid "Katta hamshira"
+msgstr "Senior nurse"
+
+#: .\staff\models.py:17
+msgid "Doctor"
+msgstr "Doctor"
+
+#: .\staff\models.py:18
+msgid "Hamshira"
+msgstr "Nurse"
+
+#: .\staff\models.py:19
+msgid "Farrosh"
+msgstr "Janitor"
+
+#: .\staff\models.py:20
+msgid "Qorovul"
+msgstr "Guard"
+
+#: .\staff\models.py:21
+msgid "Haydovchi"
+msgstr "Driver"
+
+#: .\staff\models.py:22
+msgid "Resurs nazoratchisi"
+msgstr "Resource controller"
+
+#: .\staff\models.py:24
+msgid "Hodim turi"
+msgstr "Employee type"
+
+#: .\staff\models.py:25
+msgid "Ishlayotganlik statusi"
+msgstr "Is working status"
+
+#: .\staff\models.py:26
+msgid "Izoh"
+msgstr "Description"
+
+#: .\staff\models.py:26
+msgid ""
+"Qo'shimcha izohlar uchun. Hodim nima ish qilishi va ho kazo larni kiritsa "
+"bo'ladi"
+msgstr "For further comments. What does the employee do and exetra"
+
+#: .\staff\models.py:42
+msgid "Davomat"
+msgstr "Attandance"
+
+#: .\staff\models.py:43
+msgid "Davomatlar"
+msgstr "Attandances"
+
+#: .\staff\models.py:45
+msgid "Qayd etilgan vaqt"
+msgstr "Tracked time"
+
+#: .\staff\validators.py:12
+#, python-brace-format
+msgid "File turlari quyidagilardan biri bo'lishligi kerak {allowed_types}"
+msgstr ""
+
+#: .\staff\validators.py:20
+#, python-brace-format
+msgid "File types must be one of the following {allowed_types}"
+"Filening maksimal hajmi {max_size} MB bo'lishligi kerak. Lekin sizning faylingiz hajmi {file_size}"
+msgstr "Maximum file size should be {max_size} MB. But your file size is {file_size}"
