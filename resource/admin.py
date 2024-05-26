@@ -61,4 +61,8 @@ admin.site.register(MedicineUsage, MedicineUsageAdmin)
 
 
 class InvalidMedicineAdmin(admin.ModelAdmin):
-    list_display = ['batch', '']
+    list_display = ['batch', 'amount', 'measure', 'tracked_at']
+    search_fields = ['batch__medicine__name']
+    list_filter = ['measure']
+admin.site.register(InvalidMedicine, InvalidMedicineAdmin)
+

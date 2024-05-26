@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-26 15:26+0500\n"
+"POT-Creation-Date: 2024-05-26 17:32+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,7 +84,7 @@ msgstr "Оснащение помещения"
 msgid "Xona jihozlari"
 msgstr "Оснащение помещения"
 
-#: .\resource\models.py:47
+#: .\resource\models.py:47 .\resource\models.py:148
 msgid "Miqdor"
 msgstr "Количество"
 
@@ -120,7 +120,7 @@ msgstr "Лекарства"
 msgid "nomi"
 msgstr "имя"
 
-#: .\resource\models.py:77 .\resource\models.py:135
+#: .\resource\models.py:77 .\resource\models.py:135 .\resource\models.py:149
 msgid "O'lchov birligi"
 msgstr "Единица измерения"
 
@@ -203,7 +203,7 @@ msgid "Foydalanilgan dori"
 msgstr "Используемый препарат"
 
 #: .\resource\models.py:131
-msgid "Fodalanilgan dorilar"
+msgid "Foydalanilgan dorilar"
 msgstr "Назначаемые лекарства"
 
 #: .\resource\models.py:133
@@ -213,3 +213,29 @@ msgstr "Сотрудник"
 #: .\resource\models.py:137
 msgid "Foydalanigan vaqti"
 msgstr "Использованное время"
+
+#: .\resource\models.py:145
+#, fuzzy
+msgid "Yaroqsiz dori"
+msgstr "Недействительное лекарство"
+
+#: .\resource\models.py:146
+
+msgid "Yaroqsiz dorilar"
+msgstr "Недействительные препараты"
+
+#: .\resource\models.py:147
+#, fuzzy
+#| msgid "Dori Partiyasi"
+msgid "Partiya"
+msgstr "Партия лекарств"
+
+#: .\resource\models.py:150
+msgid "Sababi"
+msgstr "Причина"
+
+#: .\resource\models.py:151
+#, fuzzy
+#| msgid "Keltirilgan vaqt"
+msgid "Qayd etilgan vaqt"
+msgstr "Указанное время"
