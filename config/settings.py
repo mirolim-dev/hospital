@@ -147,6 +147,7 @@ AUTH_USER_MODEL = 'account.CustomUser'
 JAZZMIN_SETTINGS = {
     "site_title": "My Admin",
     "site_header": "My Admin",
+    "site_brand": "Meridian",
     "welcome_sign": "Welcome to the Admin Panel",
     "topmenu_links": [
         {"model": "auth.User"},
