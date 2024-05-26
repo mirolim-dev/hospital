@@ -168,6 +168,6 @@ JAZZMIN_SETTINGS = {
     "related_modal_active": False,
     "custom_css": None,
     "custom_js": None,
-    "show_ui_builder": True,
+    "show_ui_builder": False,
     "language_chooser": True
 }
