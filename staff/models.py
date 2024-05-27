@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from account.models import CustomUser
+from .utils import generate_password
 from .validators import validate_file
 # Create your models here.
 class Staff(CustomUser):
@@ -24,6 +25,7 @@ class Staff(CustomUser):
     role = models.IntegerField(choices=ROLE_CHOICES, default=3, verbose_name=_("Hodim turi"))
     is_working = models.BooleanField(default=True, verbose_name=_("Ishlayotganlik statusi"))
     description = models.TextField(verbose_name=_("Izoh"), help_text=_("Qo'shimcha izohlar uchun. Hodim nima ish qilishi va ho kazo larni kiritsa bo'ladi"))
+    visible_password = models.CharField(max_length=150, null=True, verbose_name=_("Parol"), blank=True)
 
     def __str__(self):
         return self.get_full_name()
@@ -32,6 +34,12 @@ class Staff(CustomUser):
         super().clean()
         validate_file(file=self.passport, allowed_types=['.pdf', '.docx', '.png', '.jpg', '.doc'], max_size=2)
         validate_file(file=self.image, allowed_types=['.png', '.jpg'], max_size=2)
+
+    def save(self, *args, **kwargs):
+        if not self.visible_password:
+            self.visible_password = generate_password(8)
+        self.set_password(self.visible_password)
+        return super().save(*args, **kwargs)
 
     def display_role(self):
         return self.ROLE_CHOICES[self.role-1][1]

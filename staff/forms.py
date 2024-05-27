@@ -15,5 +15,6 @@ class StaffAdminForm(forms.ModelForm):
             'salary',
             'is_working',
             'role',
+            'visible_password',
             'description',
         ]
