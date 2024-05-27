@@ -83,7 +83,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return super().has_module_perms(app_label)
     
     def __str__(self):
-        return self.phone
+        full_name = self.get_full_name()
+        return full_name if full_name.strip() else self.phone
 
     def display_gender(self):
         gender = {
