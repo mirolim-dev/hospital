@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils import timezone
 
 from .models import Staff, Attandace
 from .forms import StaffAdminForm
@@ -22,6 +23,16 @@ class AttandanceAdmin(admin.ModelAdmin):
         staff_id = obj.staff_id
         return Staff.objects.get(pk=staff_id).display_role()
     get_staff_role.short_description = 'Xodim turi'
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "staff":
+            # Get today's date
+            today = timezone.now().date()
+            # Get all staff who have been tracked today
+            tracked_staff_ids = Attandace.objects.filter(tracked_at__date=today).values_list('staff_id', flat=True)
+            # Exclude the staff who have been tracked today from the queryset
+            kwargs["queryset"] = Staff.objects.exclude(id__in=tracked_staff_ids)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 admin.site.register(Attandace, AttandanceAdmin)
     
