@@ -19,7 +19,8 @@ class AttandanceAdmin(admin.ModelAdmin):
     list_filter = ['staff__role', FilterAttandanceByTime]
 
     def get_staff_role(self, obj):
-        return obj.staff_id.display_role()
+        staff_id = obj.staff_id
+        return Staff.objects.get(pk=staff_id).display_role()
     get_staff_role.short_description = 'Xodim turi'
 
 admin.site.register(Attandace, AttandanceAdmin)

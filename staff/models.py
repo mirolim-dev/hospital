@@ -34,7 +34,7 @@ class Staff(CustomUser):
         validate_file(file=self.image, allowed_types=['.png', '.jpg'], max_size=2)
 
     def display_role(self):
-        return self.ROLE_CHOICES[self.role][1]
+        return self.ROLE_CHOICES[self.role-1][1]
 
 
 class Attandace(models.Model):

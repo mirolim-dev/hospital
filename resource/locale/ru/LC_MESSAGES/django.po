@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-26 19:30+0500\n"
+"POT-Creation-Date: 2024-05-27 21:53+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Dori Partiyasi"
 msgid "Partiya raqami"
-msgstr "Партия лекарств"
+msgstr "Партия л"
 
 #: .\resource\apps.py:7
 msgid "Resurslar"
@@ -254,7 +254,13 @@ msgid "Kiritayotgan miqdoringiz 0 bo'lishi mumkun emas"
 msgstr "Сумма, которую вы вводите, не может быть равна 0."
 
 #: .\resource\validators.py:33
-#, python-brace-format
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "Ushbu partiyada kiritilgan miqdordagi {medicine_name} mavjud emas. Ushbu "
+#| "partiyada qolgan miqdor {amount} {measure}"
 msgid ""
-"Ushbu partiyada kiritilgan miqdordagi {medicine_name} mavjud emas. Ushbu partiyada qolgan miqdor {amount} {measure}"
-msgstr "Эта партия не содержит {medicine_name} в указанном количестве. Оставшаяся сумма в этом пакете {amount} {measure}"
+"Ushbu partiyada kiritilgan miqdordagi {medicine_name} mavjud "
+"emas.                 Ushbu partiyada qolgan miqdor {amount} {measure}"
+msgstr ""
+"Эта партия не содержит {medicine_name} в указанном количестве. Оставшаяся "
+"сумма в этом пакете {amount} {measure}"
