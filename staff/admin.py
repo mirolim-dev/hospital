@@ -11,6 +11,7 @@ class StaffAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'phone', 'address', 'role', 'is_working']
     search_fields = ['first_name', 'last_name', 'phone']
     list_filter = ['role', 'is_working']
+    list_per_page = 20
 admin.site.register(Staff, StaffAdmin)
 
 
@@ -18,6 +19,7 @@ class AttandanceAdmin(admin.ModelAdmin):
     list_display = ['staff', 'get_staff_role', 'tracked_at']
     search_fields = ['staff__first_name', 'staff__last_name']
     list_filter = ['staff__role', FilterAttandanceByTime]
+    list_per_page = 20
 
     def get_staff_role(self, obj):
         staff_id = obj.staff_id
