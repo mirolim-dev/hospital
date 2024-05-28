@@ -21,9 +21,13 @@ from django.views.i18n import set_language
 from django.conf import settings
 from django.conf.urls.static import static
 
+from staff.views import home
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('i18n/', set_language, name='set_language'),
+
+    path("", home, name="home"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
