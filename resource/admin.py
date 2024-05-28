@@ -53,10 +53,9 @@ admin.site.register(BatchMedicine, BatchMedicineAdmin)
 
 
 class MedicineUsageAdmin(admin.ModelAdmin):
-    list_display = ['medicine', 'staff', 'amount', 'measure', 'created_at']
+    list_display = ['medicine', 'amount', 'measure', 'created_at']
     search_fields = ['medicine__name']
     list_filter = ['measure', 'medicine', FilterBatchMedicineByCreatedAtTime]
-    readonly_fields = ['staff']
 admin.site.register(MedicineUsage, MedicineUsageAdmin)
 
 
