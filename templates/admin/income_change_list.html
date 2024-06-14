@@ -1,0 +1,12 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+<div class="container">
+    {% if total_income %}
+        <div class="alert alert-info">
+            <strong>Total Income for this month:</strong> {{ total_income }} UZS
+        </div>
+    {% endif %}
+</div>
+{{ block.super }}
+{% endblock %}

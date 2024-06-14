@@ -44,7 +44,6 @@ class Staff(CustomUser):
     def display_role(self):
         return self.ROLE_CHOICES[self.role-1][1]
 
-
 class Attandace(models.Model):
     class Meta:
         verbose_name = _('Davomat')
