@@ -3,3 +3,4 @@ env
 kn.py
 media
 .env
+__pycache__
