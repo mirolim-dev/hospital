@@ -41,10 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'ckeditor',
+    'ckeditor_uploader', 
+
     'account',
     'staff',
     'resource',
     'finance',
+    'showcase_project',
 ]
 
 MIDDLEWARE = [
@@ -137,14 +141,64 @@ EXCLUDE_PATHS = [
     'env',  # Exclude the 'env' directory
     'dist-info',  # Exclude directories ending with 'dist-info'
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono-lisa',  # Optionally use a different skin
+        'toolbar': 'Custom',  # Custom toolbar
+        'height': 400,
+        'width': '100%',
+        'toolbar_Custom': [
+            {'name': 'document', 'items': ['Source', '-', 'Preview', '-', 'Print', '-', 'Templates']},
+            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo']},
+            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+            {'name': 'basicstyles', 'items': ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat']},
+            {'name': 'paragraph', 'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert', 'items': ['Image', 'Table', 'HorizontalRule', 'SpecialChar']},
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+        ],
+        'extraPlugins': ','.join([
+            'uploadimage',  # Enable image uploads
+            'autolink', 'autogrow', 'clipboard', 'dialog', 'dialogui', 'elementspath',
+            'filetools', 'notification', 'notificationaggregator', 'filebrowser',
+            'lineutils', 'link', 'widget'
+        ]),
+        'removeButtons': 'Subscript,Superscript',  # Optional: remove unused buttons
+        'removePlugins': 'forms',  # Optional: remove unused plugins
+        'allowedContent': True,  # Enable all content (disables ACF filtering)
+        'autoGrow_minHeight': 400,  # Enable auto-grow feature
+        'autoGrow_maxHeight': 800,
+        'autoGrow_bottomSpace': 50,
+        'filebrowserBrowseUrl': '/ckeditor/browse/',  # Optional: File browser URL
+        'filebrowserUploadUrl': '/ckeditor/upload/',  # Optional: File upload URL
+        'image_previewText': ' ',  # Preview text for uploaded images
+    },
+}
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static')
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = 'media/'
+
+# Define upload paths for images and files
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+# Optional: Restrict image and file sizes
+CKEDITOR_IMAGE_BACKEND = "pillow"  # Choose between "pillow" or "image" for image processing
+CKEDITOR_RESTRICT_BY_USER = True  # Restrict uploads to the authenticated user
+
+# File browser settings (optional)
+CKEDITOR_FILEBROWSER_URL = "/ckeditor/browse/"
+CKEDITOR_FILEBROWSER_UPLOAD_URL = "/ckeditor/upload/"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -153,10 +207,10 @@ AUTH_USER_MODEL = 'account.CustomUser'
 
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Meiridian",
-    "site_header": "Meiridian",
-    "site_brand": "Meridian",
-    "welcome_sign": "Welcome to the Meridian",
+    "site_title": "Dastyor Medical",
+    "site_header": "Dastyor Medical",
+    "site_brand": "Dastyor Medical",
+    "welcome_sign": "Welcome to the Dastyor Medical",
     "topmenu_links": [
         {"model": "auth.User"},
     ],
